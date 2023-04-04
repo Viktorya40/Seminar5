@@ -1,26 +1,28 @@
 ﻿Console.Write("Введите количество элементов массива: ");
-int n = Convert.ToInt32(Console.ReadLine());
-int[] randomArray = new int[n];
+int a = Convert.ToInt32(Console.ReadLine());
+int[] randomArray = new int[a];
 
-void array (int n)
+void array(int a)
 {
-for (int i = 0; i < n; i++)
+for (int i = 0; i < a; i++)
 {
-randomArray[i] = new Random().Next(99,999);
+randomArray[i] = new Random().Next(1,9);
 Console.Write(randomArray[i] + " ");
 }
 
 }
 
-int count(int[] randomArray)
+int kol(int[] randomArray)
 {
-int count = 0;
-for (int i = 0; i < randomArray.Length; i++)
+int sum = 0;
+int i = 0;
+while (i < randomArray.Length)
 {
-if (randomArray[i] % 2 == 0)
-count = count + 1;
+sum = sum + randomArray[i];
+i = i + 2;
 }
-return count;
+return sum;
 }
-array(n);
-Console.Write($"Количество чётных чисел в массиве: {count(randomArray)}");
+
+array(a);
+Console.Write($"Cумма элементов, стоящих на нечётных позициях: {kol(randomArray)}");
